@@ -4,3 +4,5 @@ Stack Number   Username        Password         Jump IP
 
 
 ssh -MS /tmp/grey student@IP 
+
+to cancel the connection ssh -MS /tmp/grey -0 cancel student@IP
