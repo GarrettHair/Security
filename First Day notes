@@ -12,4 +12,24 @@ ssh -S /tmp/grey tankesux -0 forward -D9050 used as a dynamic tunnel maker
 Local Tunnel: 
     ssh -S /tmp/grey dummy -O forward -L1111:192.168.128.100:80 (multiple portforwards can be added into a line) 
 -L2222:192.168.0.0:22 -L3333:192.168.0.1:23
+----------------------------------------------------------------------------------------------------------------
+Network Recon:
+    
+    WEB SCRAPPING:
+    
+        pip install lxml requests
+        
+        #!/usr/bin/python
+        import lxml.html
+        import requests
+        
+        page = requests.get('http://quotes.toscrape.com')
+        tree = lxml.html.fromstring(page.content)
+        
+        authors = tree.xpath('//small[@class="author"]/text()')
+        
+        print ('Authors: ',authors)
 
+proxychains nmap --script http-enum 192.168.28.100 (Enumerates the http directory)
+proxychains nmap --script banner 192.168.28.100 (Used to banner grab the ports)
+    
