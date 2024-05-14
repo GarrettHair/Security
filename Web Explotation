@@ -1,0 +1,69 @@
+GET / HTTP/1.1 ( this is saying get the root of the page ) using HTTP/1.1
+
+   
+HTTP Response codes:
+	
+	10X == Informational
+
+    2XX == Success
+
+    30X == Redirection
+
+    4XX == Client Error
+
+    5XX == Server Error
+
+
+HTTP Fields:
+
+    User-Agent
+
+    Referer
+
+    Cookie
+
+    Date
+
+    Server
+
+    Set-Cookie
+-------------------------------------------------------------------
+JavaScript (JS):
+
+    Allows websites to interact with the client
+
+	JavaScript runs on the client’s machine
+
+    Coded as .js files, or in-line of HTML
+
+Cross-Stie scripting (XSS):
+	
+	Insertion of arbitrary code into a webpage, that executes in the browser of visitors	
+	
+	Unsanitized GET, POST, and PUT methods allows JS to be placed on websites
+	
+	Often found in forums that allow HTML
+
+The most common form of XSS is Reflected XSS
+
+Characters that are normally illegal in URLs can be Base64 encoded
+
+Stored XSS:
+	Resides on vulnerable sites
+	Only requires user to visit page
+Useful JavaScript Components
+
+Proof of concept (simple alert):
+
+	<script>alert('XSS');</script>
+
+    Capturing Cookies
+    document.cookie
+
+    Capturing Keystrokes
+
+    bind keydown and keyup
+
+    Capturing Sensitive Data
+    document.body.innerHTML
+
