@@ -26,7 +26,7 @@ Try to get a true statments so the server just gives you all the information
 
 Audi' UNION select 1,2,3,4# used to test the number of columns
 -----------------------------------------------------------------------------------------------------
-Important Statment - select table_schema,x,table_name,column_name,5 FROM information_schema.columns#
+Important Statment - select table_schema,x,table_name,column_name,5 FROM information_schema.colunms#
 -----------------------------------------------------------------------------------------------------
 table_schema hold databases
 
