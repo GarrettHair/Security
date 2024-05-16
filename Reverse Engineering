@@ -1,1 +1,62 @@
 xfreerdp /u:username /v:ip /dynamic-resolution +glyph-cache +clipboard
+
+	
+
+
+
+Flags:
+	CF - carry flag : Set on high-order bit carry or borrow; cleared otherwise
+	PF - parity flag : Set if low-order eight bits of result contain an even number of "1" bits; cleared
+	otherwise
+	ZF - zero flags : Set if result is zero; cleared otherwise
+	SF - sign flag : Set equal to high-order bit of result (0 if positive 1 if negative)
+	OF - overflow flag : Set if result is too large a positive number or too small a negative number
+	(excluding sign bit) to fit in destination operand; cleared otherwise
+	
+Instructions:
+	add : add items together
+	sub : subtract items
+	inc, dec : increment, decrement by 1
+	imul : multiplication
+	and, or, xor : logical operations
+	jmp : jump. move pointer to a memory location
+	j<condition> : is a jump based upon a condition being meet
+	cmp : compare.
+	call : call a subroutine, which pushes current memory location onto the stack. Unlike a jmp call
+	will save the location of memory which is returned to once the subroutine finishes.
+	ret : return, pops the memory location of the stack and then execuates a unconditional jmp to
+	subroutine location.
+	MOV: move source to destination
+	PUSH: push source onto stack
+	POP: Pop top of stack to destination
+
+Examples:
+	main:
+		mov rax, 16 #16 moved into rax
+		push rax #push value of rax (16) onto stack
+		jmp mem2
+
+	mem1:
+		mov rax, 0 #move 0 (error free) exit code into rax
+		ret #return out of code
+	
+	mem2:
+		pop r8 # pop value on the stack (16) int r8
+		cmp rax, r8 #compare rax register value (16) to r8 register value (16)
+		je mem1 #jump if comparison has zero bit set to mem1
+-------------------------------------------------------------------------------
+
+	main:
+		mov rcx, 25 #stores the value 25 in rcx register
+		mov rbx, 62
+	
+	mem1:
+		sub rbx , 40 #subtract 40 from rbx (=22)
+		mov rsi, rbx #copy rbx value (22) to rsi
+		cmp rcx, rci #compares rcx to rsi 
+		jmple mem2
+	
+	mem2:
+		move rax, 0 #store 0 (error free/success) in rax
+		ret (returns out of code)
+
