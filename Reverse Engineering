@@ -1,0 +1,1 @@
+xfreerdp /u:username /v:ip /dynamic-resolution +glyph-cache +clipboard
