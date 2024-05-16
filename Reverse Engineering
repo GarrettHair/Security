@@ -60,3 +60,10 @@ Examples:
 		move rax, 0 #store 0 (error free/success) in rax
 		ret (returns out of code)
 
+Reverse Engineering workflow:
+	
+	Static: All the analysis that you can do without running the .exe
+	Behavioral: Is the analysis that you do while running the software in a sandbox
+	Dynamic: Running in a debugger that allows you to run the program function to function to examine what the executable does
+	Disassembly: Breaking down the code to see how it works
+	Document Findings: Just documenting any find about the executable
