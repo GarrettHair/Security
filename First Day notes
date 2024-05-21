@@ -4,7 +4,7 @@ Stack Number   Username        Password           Jump IP
 
 
 ssh -MS /tmp/grey student@IP 
-
+   
 to cancel the connection ssh -MS /tmp/grey -O cancel student@IP
 
 ssh -S /tmp/grey tankesux -O forward -D9050 used as a dynamic tunnel maker
