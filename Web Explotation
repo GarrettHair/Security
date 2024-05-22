@@ -75,6 +75,7 @@ Steps to make http server:
 you can traverse the web server using ../../../../ etc...
 /robots.txt
 /uploads
+--script http-enum
 ; command is used to test for command injection
 ----------------------------------------------------------------------------
 getting onto a system with command injection:
