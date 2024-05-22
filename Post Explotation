@@ -1,0 +1,20 @@
+Local Host Enumeration:
+
+name resolution:
+	cat /etc/host
+
+services:
+to find out which version ps -p 1 init(SysV) systemd(SystemD)
+	chkconfig                   # SysV
+	systemctl --type=service    # SystemD
+
+scp <source> <destination>
+
+## From local to remote
+scp file user@ip:/path/to/file
+
+
+
+##From remote to local
+
+scp -P 1111 user@127.0.0.1:/path/to/file .
