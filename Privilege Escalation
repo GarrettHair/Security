@@ -52,7 +52,10 @@ EXE Replacment:
 
 
 
+Audit Logging: auditpol /get /category:*
 
+
+	
 
 
 
