@@ -11,7 +11,7 @@ If there is no /uploads folder then ignore trying to upload the malicous file. t
 
 Make sure to write down the credentials you find in the OP notes
 
-When you see the user name and password boxes its a post method (bob' or 1'=1)
+When you see the user name and password boxes its a post method (bob' or 1='1)
 
 then open the inspection tab and go to network so you can capture the request, put the question mark behined the .php and put the raw request next to it on the lin ops its names webshell.php
 
