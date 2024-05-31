@@ -1,0 +1,117 @@
+Nmap scan report for 10.50.37.163
+Host is up (0.0043s latency).
+Not shown: 998 filtered ports
+PORT   STATE SERVICE
+22/tcp open  ssh
+80/tcp open  http
+| http-enum: 
+|   /robots.txt: Robots file
+|   /images/: Potentially interesting directory w/ listing on 'apache/2.4.29 (ubuntu)'
+|_  /share/: Potentially interesting directory w/ listing on 'apache/2.4.29 (ubuntu)'
+
+www-data:x:33:33:5tHTWM2Aa3d6iupR4rYU:/var/www:/bin/sh (user you are on 10.5.37.163)
+
+ssh -MS /tmp/jump www-data@10.50.37.163
+
+ping sweep
+64 bytes from 192.168.28.30: icmp_seq=1 ttl=64 time=0.199 ms
+64 bytes from 192.168.28.177: icmp_seq=1 ttl=63 time=1.15 ms
+64 bytes from 192.168.28.182: icmp_seq=1 ttl=63 time=0.816 ms
+64 bytes from 192.168.28.190: icmp_seq=1 ttl=64 time=0.117 ms
+
+
+-------------------------------------------------------------------------------------
+Nmap scan report for 192.168.28.177
+Host is up (0.00071s latency).
+Not shown: 9999 closed ports
+PORT   STATE SERVICE
+22/tcp open  ssh
+
+Nmap scan report for 192.168.28.182
+Host is up (0.00071s latency).
+Not shown: 9999 closed ports
+PORT   STATE SERVICE
+22/tcp open  ssh
+80/tcp open  http
+
+| http-enum: 
+|   /login/: Login page
+|   /robots.txt: Robots file
+|_  /images/: Potentially interesting directory w/ listing on 'apache/2.4.29 (ubuntu)'
+
+Array
+(
+    [0] => Msmith
+    [name] => Msmith
+    [1] => Squanchy
+    [password] => Squanchy
+)
+1Array
+(
+    [0] => Fpalic
+    [name] => Fpalic
+    [1] => Birdperson
+    [password] => Birdperson
+)
+1Array
+(
+    [0] => Kmichae
+    [name] => Kmichae
+    [1] => MrMeeseeks
+    [password] => MrMeeseeks
+)Province 	1
+
+^
+|
+|
+|
+v
+
+Civilian population 	Rick Sanchez
+Residing Unit 	ScaryTerry
+Troop strength 	4
+
+Province 	2
+Civilian population 	Morty Smith
+Residing Unit 	Squanchy
+Troop strength 	4
+
+Province 	3
+Civilian population 	Frank Palicky
+Residing Unit 	Birdperson
+Troop strength 	4
+
+Province 	4
+Civilian population 	Krombopulos Michael
+Residing Unit 	MrMeeseeks
+Troop strength 	4
+1
+-------------------------------------------------------------------------------------------
+PORT     STATE SERVICE
+22/tcp   open  ssh
+|_banner: SSH-2.0-OpenSSH_for_Windows_7.7
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-wbt-server
+9999/tcp open  abyss
+
+Nmap scan report for 192.168.28.10
+Host is up (0.00097s latency).
+Not shown: 999 closed ports
+PORT   STATE SERVICE
+22/tcp open  ssh
+|_banner: SSH-2.0-OpenSSH_7.6p1 Ubuntu-4ubuntu0.3
+
+Nmap scan report for 192.168.28.19
+Host is up (0.00096s latency).
+Not shown: 999 closed ports
+PORT   STATE SERVICE
+22/tcp open  ssh
+|_banner: SSH-2.0-OpenSSH_7.6p1 Ubuntu-4ubuntu0.3
+
+
+
+
+
+
